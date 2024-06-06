@@ -1,0 +1,236 @@
+/* 
+File: style.css 
+Assignment: Interactive Dynamic Table 
+Sudhir Gunaseelan, UMass Lowell Computer Science, Sudhir_Gunaseelan@student.uml.edu 
+Copyright (c) 2024 by Sudhir. All rights reserved. May be freely copied or 
+excerpted for educational purposes with credit to the author. 
+Updated by SG on June 06, 2024, at 12:00 PM. 
+Instructor: Professor Wenjin Zhou 
+Help: w3schools, Google 
+Basic Description: This file provides the styling for the Multiplication Table 
+Generator web application, ensuring a visually appealing and user-friendly interface. 
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FFDEE9  25%, #B5FFFC 50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #1303f1;
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+.form-section {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    background: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1303f1;
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+input {
+    width: calc(100% - 22px);
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.table-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #007bff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+td {
+    background-color: #fff;
+    color: #343a40;
+}
+
+th.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+th.sticky-left {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    background-color: #007bff;
+    z-index: 1;
+}
+
+.slider {
+    margin: 10px 0;
+}
+
+.ui-slider-horizontal {
+    height: 10px;
+    background: #007bff;
+}
+
+.ui-slider-handle {
+    width: 20px;
+    height: 20px;
+}
+
+.ui-slider-handle:hover {
+    background: #bdfffe;
+    border: 2px solid rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+#tabs {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#tabs .ui-tabs-panel {
+    padding: 0;
+}
+
+#tabs ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    white-space: nowrap;
+}
+
+#tabs li {
+    list-style: none;
+}
+
+#tabs li a {
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    color: #010305;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background: #f8f9fa;
+    border-radius: 5px 5px 0 0;
+}
+
+#tabs li a:hover {
+    background: #74b2ba;
+}
+
+#tabs .ui-tabs-panel {
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+#tabs ul li .tab-checkbox {
+    margin-right: 1px;
+}
+
+#tabs ul li .ui-icon-close {
+    display: inline-block;
+    margin-left: -10px;
+    margin-right: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}

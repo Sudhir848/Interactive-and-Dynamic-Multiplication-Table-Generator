@@ -1,0 +1,79 @@
+<!--
+File: index.html
+Assignment: Interactive Dynamic Table
+Sudhir Gunaseelan, UMass Lowell Computer Science, Sudhir_Gunaseelan@student.uml.edu
+Copyright (c) 2024 by Sudhir. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+Updated by SG on June 06, 2024, at 12:00 PM.
+Instructor: Professor Wenjin Zhou
+Help: w3schools, Google
+Basic Description: This is the fourth assignment of GUI I where we work with jquery in addition to
+HTML, CSS and Javascript to create an interactive multiplication table. This file includes the necessary
+elements for user interaction using sliders and table display using the form element.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div>
+        <header>
+            <h1>Multiplication Table Generator</h1>
+        </header>
+        <div class="content">
+            <div class="form-section">
+                <form id="multiplicationForm">
+                    <fieldset>
+                        <legend>Please enter the table ranges</legend>
+                        <label for="startY">Minimum Column Value</label>
+                        <input type="number" id="startY" name="startY" required>
+                        <div id="slider-startY" class="slider"></div>
+                        <label for="endY">Maximum Column Value</label>
+                        <input type="number" id="endY" name="endY" required>
+                        <div id="slider-endY" class="slider"></div>
+                        <label for="startX">Minimum Row Value</label>
+                        <input type="number" id="startX" name="startX" required>
+                        <div id="slider-startX" class="slider"></div>
+                        <label for="endX">Maximum Row Value</label>
+                        <input type="number" id="endX" name="endX" required>
+                        <div id="slider-endX" class="slider"></div>
+                        <button type="submit">Generate Table</button>
+                    </fieldset>
+                    <div id="errorMessage" class="error-message"></div>
+                </form>
+            </div>
+            <div class="table-section">
+                <div id="tabs">
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="tab-checkbox" data-tab="tab-1">
+                            <a href="#tab-1">Input</a>
+                        </li>
+                    </ul>
+                    <div id="tab-1">
+                        <div id="tableContainer"></div>
+                    </div>
+                </div>
+                <button id="deleteSelected" style="margin-left: 10px; align-self: center;">Delete Selected</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
