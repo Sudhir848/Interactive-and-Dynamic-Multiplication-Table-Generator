@@ -1,14 +1,14 @@
-/* 
-File: style.css 
-Assignment: Interactive Dynamic Table 
-Sudhir Gunaseelan, UMass Lowell Computer Science, Sudhir_Gunaseelan@student.uml.edu 
-Copyright (c) 2024 by Sudhir. All rights reserved. May be freely copied or 
-excerpted for educational purposes with credit to the author. 
-Updated by SG on June 06, 2024, at 12:00 PM. 
-Instructor: Professor Wenjin Zhou 
-Help: w3schools, Google 
-Basic Description: This file provides the styling for the Multiplication Table 
-Generator web application, ensuring a visually appealing and user-friendly interface. 
+/*
+File: style.css
+Assignment: Interactive Dynamic Table
+Sudhir Gunaseelan, UMass Lowell Computer Science, Sudhir_Gunaseelan@student.uml.edu
+Copyright (c) 2024 by Sudhir. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+Updated by SG on June 07, 2024, at 6:00 PM.
+Instructor: Professor Wenjin Zhou
+Help: w3schools, Google
+Basic Description: This file provides the styling for the Multiplication Table
+Generator web application, ensuring a visually appealing and user-friendly interface.
 */
 
 body {
@@ -16,7 +16,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #FFDEE9  25%, #B5FFFC 50%);
+    background: linear-gradient(135deg, #FFDEE9 25%, #B5FFFC 50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,8 +26,17 @@ body {
     box-sizing: border-box;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
 header {
-    margin-bottom: 20px;
+    margin-bottom: auto;
 }
 
 header h1 {
@@ -40,8 +49,8 @@ header h1 {
     align-items: flex-start;
     width: 100%;
     max-width: 1200px;
-    overflow-x: auto;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .form-section {
@@ -55,6 +64,7 @@ header h1 {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
     box-sizing: border-box;
+    width: 350px;
 }
 
 fieldset {
@@ -87,15 +97,35 @@ input {
 button {
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    color: #FFFFFF;
 }
 
 button:hover {
-    background-color: #0056b3;
+    opacity: 0.8;
+}
+
+.save-table-button {
+    background-color: #28a745;
+}
+
+.reset-sliders-button {
+    background-color: #007bff;
+}
+
+.delete-selected-button {
+    background-color: #dc3545;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .table-section {
@@ -109,9 +139,17 @@ button:hover {
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    min-width: 600px;
+    max-width: 100%;
+    height: auto;
+    width: 350px;
+}
+
+.table-container {
     width: 100%;
-    max-height: 500px;
-    overflow: hidden;
+    height: 300px;
+    overflow: auto;
+    box-sizing: border-box;
 }
 
 .error-message {
@@ -127,38 +165,37 @@ button:hover {
 
 table {
     border-collapse: collapse;
-    margin: auto;
     width: 100%;
+    font-size: 14px;
 }
 
 th, td {
-    border: 1px solid #007bff;
-    padding: 10px 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
     text-align: center;
-}
-
-th {
-    background-color: #007bff;
-    color: #fff;
-}
-
-td {
-    background-color: #fff;
-    color: #343a40;
+    white-space: nowrap;
 }
 
 th.sticky {
+    background-color: #007bff;
+    color: #fff;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    z-index: 2;
 }
 
 th.sticky-left {
+    left: 0;
+    z-index: 1;
     position: -webkit-sticky;
     position: sticky;
-    left: 0;
-    background-color: #007bff;
-    z-index: 1;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 0;
+    background: #fff;
+    overflow: auto;
 }
 
 .slider {
@@ -183,7 +220,7 @@ th.sticky-left {
 
 #tabs {
     width: 100%;
-    overflow-x: auto;
+    overflow: hidden;
 }
 
 #tabs .ui-tabs-panel {
@@ -203,6 +240,8 @@ th.sticky-left {
 
 #tabs li a {
     padding: 10px 15px;
+    margin-left: 30px;
+    margin-right: 10px;
     display: block;
     text-decoration: none;
     color: #010305;
