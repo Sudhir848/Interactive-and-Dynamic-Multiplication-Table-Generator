@@ -24,7 +24,7 @@ elements for user interaction using sliders and table display using the form ele
 </head>
 
 <body>
-    <div>
+    <div class="wrapper">
         <header>
             <h1>Multiplication Table Generator</h1>
         </header>
@@ -45,12 +45,17 @@ elements for user interaction using sliders and table display using the form ele
                         <label for="endX">Maximum Row Value</label>
                         <input type="number" id="endX" name="endX" required>
                         <div id="slider-endX" class="slider"></div>
-                        <button type="submit">Generate Table</button>
+                        <div class="button-group">
+                            <button type="submit" class="save-table-button">Save Table</button>
+                            <button type="button" id="resetSliders" class="reset-sliders-button">Reset the
+                                Slider</button>
+                        </div>
                     </fieldset>
                     <div id="errorMessage" class="error-message"></div>
                 </form>
             </div>
             <div class="table-section">
+                <button id="deleteSelected" class="delete-selected-button">Delete Selected Tabs</button>
                 <div id="tabs">
                     <ul>
                         <li>
@@ -59,10 +64,9 @@ elements for user interaction using sliders and table display using the form ele
                         </li>
                     </ul>
                     <div id="tab-1">
-                        <div id="tableContainer"></div>
+                        <div id="tableContainer" class="table-container"></div>
                     </div>
                 </div>
-                <button id="deleteSelected" style="margin-left: 10px; align-self: center;">Delete Selected</button>
             </div>
         </div>
     </div>
