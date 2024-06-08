@@ -154,6 +154,11 @@ $(document).ready(function() {
         $("#tabs").tabs("refresh");
         $("#tabs").tabs("option", "active", $("#tabs ul li").length - 1);
 
+        var nav = $(".ui-tabs-nav");
+        nav.animate({
+            scrollLeft: nav.prop("scrollWidth")
+        }, 800);
+
         $("#tabs").on("click", "span.ui-icon-close", function() {
             var panelId = $(this).closest("li").remove().attr("aria-controls");
             $("#" + panelId).remove();
