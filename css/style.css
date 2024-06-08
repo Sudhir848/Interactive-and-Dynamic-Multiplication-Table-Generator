@@ -80,9 +80,9 @@ fieldset {
 
 legend {
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-bottom: 5px;
-    color: rgb(59, 7, 247);
+    color: rgb(0, 0, 0);
 }
 
 label {
