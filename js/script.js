@@ -4,7 +4,7 @@ Assignment: Interactive Dynamic Table
 Sudhir Gunaseelan, UMass Lowell Computer Science, Sudhir_Gunaseelan@student.uml.edu
 Copyright (c) 2024 by Sudhir. All rights reserved. May be freely copied or
 excerpted for educational purposes with credit to the author.
-Updated by SG on June 07, 2024, at 6:00 PM.
+Updated by SG on June 08, 2024, at 11:00 PM.
 Instructor: Professor Wenjin Zhou
 Help: w3schools, Google
 Basic Description: provides the functionality for the Multiplication Table
@@ -112,7 +112,7 @@ $(document).ready(function() {
         const tableHTML = createTableHTML(startX, endX, startY, endY);
 
         if ($("#tabs .ui-tabs-panel").length === 0) {
-            addNewTab(tableHTML);
+            addNewTab(tableHTML, true);
         } else {
             const activeTab = $("#tabs").tabs("option", "active");
             const activeTabId = $("#tabs .ui-tabs-panel").eq(activeTab).attr("id");
