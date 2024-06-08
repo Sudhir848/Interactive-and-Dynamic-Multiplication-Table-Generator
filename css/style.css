@@ -4,7 +4,7 @@ Assignment: Interactive Dynamic Table
 Sudhir Gunaseelan, UMass Lowell Computer Science, Sudhir_Gunaseelan@student.uml.edu
 Copyright (c) 2024 by Sudhir. All rights reserved. May be freely copied or
 excerpted for educational purposes with credit to the author.
-Updated by SG on June 07, 2024, at 6:00 PM.
+Updated by SG on June 08, 2024, at 11:00 PM.
 Instructor: Professor Wenjin Zhou
 Help: w3schools, Google
 Basic Description: This file provides the styling for the Multiplication Table
@@ -107,19 +107,22 @@ button {
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    color: #FFFFFF;
+    color: #000000;
 }
 
 button:hover {
     opacity: 0.8;
+    color: rgb(255, 255, 255);
 }
 
 .save-table-button {
     background-color: #388e3c;
+    color: rgb(255, 255, 255);
 }
 
 .reset-sliders-button {
     background-color: #1976d2;
+    color: rgb(255, 255, 255);
 }
 
 .delete-selected-button {
@@ -248,6 +251,28 @@ table tr:hover {
     border-radius: 10px;
 }
 
+.ui-tabs-nav {
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.ui-tabs-nav::-webkit-scrollbar {
+    height: 9px;
+}
+
+.ui-tabs-nav::-webkit-scrollbar-thumb {
+    background-color: #025fb0;
+    border-radius: 10px;
+}
+
+.ui-tabs-nav::-webkit-scrollbar-thumb:hover {
+    background: #040507;
+  }
+
 #tabs .ui-tabs-panel {
     padding: 0;
 }
@@ -301,4 +326,8 @@ table tr:hover {
     vertical-align: middle;
     cursor: pointer;
     color: #ffffff;
+}
+
+.ui-tabs .ui-tabs-panel {
+    overflow-y: auto;
 }
