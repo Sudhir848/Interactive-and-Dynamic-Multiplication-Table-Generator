@@ -49,24 +49,24 @@ $(document).ready(function() {
         },
         messages: {
             startY: {
-                required: "Please enter the minimum column value.",
+                required: "Please enter a minimum column value.",
                 number: "Please enter a valid number.",
                 range: "Value must be between -50 and 50.",
                 lessThan: "Minimum column value must be less than or equal to maximum column value."
             },
             endY: {
-                required: "Please enter the maximum column value.",
+                required: "Please enter a maximum column value.",
                 number: "Please enter a valid number.",
                 range: "Value must be between -50 and 50."
             },
             startX: {
-                required: "Please enter the minimum row value.",
+                required: "Please enter a minimum row value.",
                 number: "Please enter a valid number.",
                 range: "Value must be between -50 and 50.",
                 lessThan: "Minimum row value must be less than or equal to maximum row value."
             },
             endX: {
-                required: "Please enter the maximum row value.",
+                required: "Please enter a maximum row value.",
                 number: "Please enter a valid number.",
                 range: "Value must be between -50 and 50."
             }
