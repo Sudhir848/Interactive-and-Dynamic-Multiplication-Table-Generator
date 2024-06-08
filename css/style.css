@@ -361,7 +361,7 @@ table tr:hover {
 
 
 /* Media Queries for Responsiveness */
-@media (min-width: 768px) {
+@media (min-width: 804px) {
     .content {
         flex-direction: row;
     }
