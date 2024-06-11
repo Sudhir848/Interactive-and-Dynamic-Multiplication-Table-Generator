@@ -4,10 +4,10 @@ Assignment: Interactive Dynamic Table
 Sudhir Gunaseelan, UMass Lowell Computer Science, Sudhir_Gunaseelan@student.uml.edu
 Copyright (c) 2024 by Sudhir. All rights reserved. May be freely copied or
 excerpted for educational purposes with credit to the author.
-Updated by SG on June 08, 2024, at 11:00 PM.
+Updated by SG on June 10, 2024, at 11:00 PM.
 Instructor: Professor Wenjin Zhou
 Help: w3schools, Google
-Basic Description: provides the functionality for the Multiplication Table
+Basic Description: This file provides the functionality for the Multiplication Table
 Generator web application, handling form submission, input validation, and dynamic table generation.
 */
 
