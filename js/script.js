@@ -84,19 +84,26 @@ $(document).ready(function() {
     // Sliders for table ranges
     $(".slider").each(function() {
         var inputId = $(this).prev("input").attr("id");
+        var sliderId = $(this).attr("id");
+
         $(this).slider({
             min: -50,
             max: 50,
             slide: function(event, ui) {
                 $("#" + inputId).val(ui.value).trigger("change");
+            },
+            change: function(event, ui) {
+                $("#" + inputId).val(ui.value).trigger("change");
             }
+        });
+
+        $("#" + inputId).on("input change", function() {
+            $("#" + sliderId).slider("value", $(this).val());
         });
     });
 
     $("input").on("input change", function() {
         var value = $(this).val();
-        var sliderId = $(this).next(".slider").attr("id");
-        $("#" + sliderId).slider("value", value);
         $("#multiplicationForm").valid() && updateTable();
     });
 
