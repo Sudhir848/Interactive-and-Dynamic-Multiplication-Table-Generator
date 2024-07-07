@@ -1,14 +1,7 @@
 /*
-File: script.js
-Assignment: Interactive Dynamic Table
-Sudhir Gunaseelan, UMass Lowell Computer Science, Sudhir_Gunaseelan@student.uml.edu
-Copyright (c) 2024 by Sudhir. All rights reserved. May be freely copied or
+Copyright (c) 2024 by Sudhir Gunaseelan. All rights reserved. May be freely copied or
 excerpted for educational purposes with credit to the author.
 Updated by SG on June 10, 2024, at 11:00 PM.
-Instructor: Professor Wenjin Zhou
-Help: w3schools, Google
-Basic Description: This file provides the functionality for the Multiplication Table
-Generator web application, handling form submission, input validation, and dynamic table generation.
 */
 
 $(document).ready(function() {
@@ -90,20 +83,21 @@ $(document).ready(function() {
             min: -50,
             max: 50,
             slide: function(event, ui) {
-                $("#" + inputId).val(ui.value).trigger("change");
+                $("#" + inputId).val(ui.value).trigger("input");
             },
             change: function(event, ui) {
-                $("#" + inputId).val(ui.value).trigger("change");
+                $("#" + inputId).val(ui.value).trigger("input");
             }
         });
 
         $("#" + inputId).on("input change", function() {
             $("#" + sliderId).slider("value", $(this).val());
+            updateTable();
         });
     });
 
-    $("input").on("input change", function() {
-        var value = $(this).val();
+    $("#startX, #endX, #startY, #endY").on("input change", function() {
+        console.log("Input changed:", $(this).attr('id'), $(this).val());
         $("#multiplicationForm").valid() && updateTable();
     });
 
@@ -116,15 +110,28 @@ $(document).ready(function() {
         const startY = parseInt(document.getElementById('startY').value);
         const endY = parseInt(document.getElementById('endY').value);
 
-        const tableHTML = createTableHTML(startX, endX, startY, endY);
+        console.log("Updating table with values:", startX, endX, startY, endY);
 
-        if ($("#tabs .ui-tabs-panel").length === 0) {
-            addNewTab(tableHTML, true);
+        if (startX === 0 && endX === 0 && startY === 0 && endY === 0) {
+            const tableHTML = '<table><tr><th class="sticky"></th><th class="sticky">0</th></tr><tr><th class="sticky sticky-left">0</th><td>0</td></tr></table>';
+            if ($("#tabs .ui-tabs-panel").length === 0) {
+                addNewTab(tableHTML, true);
+            } else {
+                const activeTab = $("#tabs").tabs("option", "active");
+                const activeTabId = $("#tabs .ui-tabs-panel").eq(activeTab).attr("id");
+                $("#" + activeTabId + " .table-container").html(tableHTML);
+                updateTabLabel(activeTab, startX, endX, startY, endY);
+            }
         } else {
-            const activeTab = $("#tabs").tabs("option", "active");
-            const activeTabId = $("#tabs .ui-tabs-panel").eq(activeTab).attr("id");
-            $("#" + activeTabId + " .table-container").html(tableHTML);
-            updateTabLabel(activeTab, startX, endX, startY, endY);
+            const tableHTML = createTableHTML(startX, endX, startY, endY);
+            if ($("#tabs .ui-tabs-panel").length === 0) {
+                addNewTab(tableHTML, true);
+            } else {
+                const activeTab = $("#tabs").tabs("option", "active");
+                const activeTabId = $("#tabs .ui-tabs-panel").eq(activeTab).attr("id");
+                $("#" + activeTabId + " .table-container").html(tableHTML);
+                updateTabLabel(activeTab, startX, endX, startY, endY);
+            }
         }
     }
 
@@ -138,7 +145,7 @@ $(document).ready(function() {
         const tableHTML = createTableHTML(startX, endX, startY, endY);
         addNewTab(tableHTML, true);
     }
-    
+
     // Add new tab when saving the table
     function addNewTab(tableHTML, replaceInputTab = false) {
         tableCount++;
@@ -212,13 +219,48 @@ $(document).ready(function() {
     });
 
     $("#resetSliders").on("click", function() {
-        $("#startX").val(0).trigger("change");
-        $("#endX").val(0).trigger("change");
-        $("#startY").val(0).trigger("change");
-        $("#endY").val(0).trigger("change");
-        $(".slider").each(function() {
-            $(this).slider("value", 0);
+        $("#startX").off("input change");
+        $("#endX").off("input change");
+        $("#startY").off("input change");
+        $("#endY").off("input change");
+
+        console.log("Resetting input fields");
+        $("#startX").val(0);
+        $("#endX").val(0);
+        $("#startY").val(0);
+        $("#endY").val(0);
+
+        console.log("Resetting sliders");
+        $("#slider-startX").slider("value", 0);
+        $("#slider-endX").slider("value", 0);
+        $("#slider-startY").slider("value", 0);
+        $("#slider-endY").slider("value", 0);
+
+        $("#startX").on("input change", function() {
+            $("#slider-startX").slider("value", $(this).val());
+            updateTable();
         });
+        $("#endX").on("input change", function() {
+            $("#slider-endX").slider("value", $(this).val());
+            updateTable();
+        });
+        $("#startY").on("input change", function() {
+            $("#slider-startY").slider("value", $(this).val());
+            updateTable();
+        });
+        $("#endY").on("input change", function() {
+            $("#slider-endY").slider("value", $(this).val());
+            updateTable();
+        });
+
+        console.log("Triggering change events");
+        $("#startX").trigger("change");
+        $("#endX").trigger("change");
+        $("#startY").trigger("change");
+        $("#endY").trigger("change");
+
+        console.log("Updating table");
+        updateTable();
     });
 
     // Delete enabled by default
